@@ -30,7 +30,7 @@ const DashboardSkeleton = () => (
 );
 
 const LoginSkeleton = () => (
-  <div className="min-h-screen flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+  <div className="min-h-[100dvh] flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <div className="w-full max-w-md animate-pulse">
       <div className="flex flex-col items-center mb-8">
         <div className="w-16 h-16 rounded-2xl bg-gray-200 dark:bg-gray-700 mb-4"></div>
@@ -45,7 +45,7 @@ const LoginSkeleton = () => (
 function App() {
   return (
     <Router>
-      <div className="min-h-screen">
+      <div className="min-h-[100dvh]">
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={
@@ -56,7 +56,7 @@ function App() {
           <Route
             path="/*"
             element={
-              <div className="flex flex-col min-h-screen">
+              <div className="flex flex-col min-h-[100dvh]">
                 <Navbar />
                 <main className="flex-1 p-4 md:p-6 lg:p-8">
                   <Suspense fallback={<DashboardSkeleton />}>

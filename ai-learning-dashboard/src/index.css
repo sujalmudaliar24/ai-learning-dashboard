@@ -63,7 +63,9 @@
 
     /* Glassmorphism card utility */
     .glass-card {
-        @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-white/60 dark:border-gray-700/50 shadow-lg;
+        @apply bg-white/80 dark:bg-gray-800/80 border border-white/60 dark:border-gray-700/50 shadow-lg;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
     }
 
     /* Input styling */
