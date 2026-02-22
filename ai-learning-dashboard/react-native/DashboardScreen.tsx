@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import { CourseIllustrations } from '../src/components/CourseIllustrations';
 
 // Mock Data
 const MOCK_COURSES = [
@@ -26,6 +27,9 @@ export default function DashboardScreen() {
                     <TouchableOpacity key={course.id} style={styles.card}>
                         {/* Card Image Placeholder */}
                         <View style={styles.cardImageContainer}>
+                            <View style={StyleSheet.absoluteFill}>
+                                {CourseIllustrations[course.id as keyof typeof CourseIllustrations]}
+                            </View>
                             <View style={styles.badge}>
                                 <Text style={styles.badgeText}>Course</Text>
                             </View>
