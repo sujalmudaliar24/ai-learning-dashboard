@@ -54,8 +54,6 @@ export default function CourseCard({ course }) {
                         </span>
                     </div>
                 )}
-                {/* Gradient fade at bottom of image */}
-                <div className="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-white dark:from-gray-800 to-transparent" />
             </div>
 
             {/* Card Body */}

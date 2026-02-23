@@ -4,11 +4,11 @@ import React from 'react';
 export const CourseIllustrations = {
     1: (
         // AI Fundamentals — Neural network
-        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" style={{ width: '100%', height: '100%' }}>
+        <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" style={{ width: '100%', height: '100%' }}>
             <defs>
-                <radialGradient id="g1" cx="50%" cy="50%" r="60%">
-                    <stop offset="0%" stopColor="#6366f1" />
-                    <stop offset="100%" stopColor="#1e1b4b" />
+                <radialGradient id="g1" cx="50%" cy="50%" r="70%">
+                    <stop offset="0%" stopColor="#4f46e5" />
+                    <stop offset="100%" stopColor="#312e81" />
                 </radialGradient>
                 <filter id="glow1">
                     <feGaussianBlur stdDeviation="3" result="blur" />
@@ -35,10 +35,10 @@ export const CourseIllustrations = {
     ),
     2: (
         // Machine Learning — scatter plot / data
-        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" style={{ width: '100%', height: '100%' }}>
+        <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" style={{ width: '100%', height: '100%' }}>
             <defs>
                 <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#b45309" />
+                    <stop offset="0%" stopColor="#ea580c" />
                     <stop offset="100%" stopColor="#78350f" />
                 </linearGradient>
                 <filter id="glow2">
@@ -67,11 +67,11 @@ export const CourseIllustrations = {
     ),
     3: (
         // React — atom-style component tree
-        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" style={{ width: '100%', height: '100%' }}>
+        <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" style={{ width: '100%', height: '100%' }}>
             <defs>
                 <radialGradient id="g3" cx="50%" cy="50%" r="70%">
-                    <stop offset="0%" stopColor="#0369a1" />
-                    <stop offset="100%" stopColor="#0c1a2e" />
+                    <stop offset="0%" stopColor="#0284c7" />
+                    <stop offset="100%" stopColor="#0f172a" />
                 </radialGradient>
                 <filter id="glow3">
                     <feGaussianBlur stdDeviation="3" result="blur" />
@@ -98,11 +98,11 @@ export const CourseIllustrations = {
     ),
     4: (
         // Advanced CSS & Animations — Abstract floating geometry and keyframes
-        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" style={{ width: '100%', height: '100%' }}>
+        <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" style={{ width: '100%', height: '100%' }}>
             <defs>
                 <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#be185d" />
-                    <stop offset="100%" stopColor="#4c0519" />
+                    <stop offset="0%" stopColor="#e11d48" />
+                    <stop offset="100%" stopColor="#881337" />
                 </linearGradient>
                 <filter id="glow4">
                     <feGaussianBlur stdDeviation="3" result="blur" />
@@ -127,11 +127,11 @@ export const CourseIllustrations = {
     ),
     5: (
         // Node.js Backend Mastery — Server connections, nodes, database stacks
-        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" style={{ width: '100%', height: '100%' }}>
+        <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" style={{ width: '100%', height: '100%' }}>
             <defs>
                 <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#15803d" />
-                    <stop offset="100%" stopColor="#052e16" />
+                    <stop offset="0%" stopColor="#16a34a" />
+                    <stop offset="100%" stopColor="#14532d" />
                 </linearGradient>
                 <filter id="glow5">
                     <feGaussianBlur stdDeviation="3" result="blur" />
@@ -160,11 +160,11 @@ export const CourseIllustrations = {
     ),
     6: (
         // Fullstack Web Development — Screen & Server ecosystem
-        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" style={{ width: '100%', height: '100%' }}>
+        <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" style={{ width: '100%', height: '100%' }}>
             <defs>
                 <linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#6d28d9" />
-                    <stop offset="100%" stopColor="#2e1065" />
+                    <stop offset="0%" stopColor="#7c3aed" />
+                    <stop offset="100%" stopColor="#4c1d95" />
                 </linearGradient>
                 <filter id="glow6">
                     <feGaussianBlur stdDeviation="4" result="blur" />
