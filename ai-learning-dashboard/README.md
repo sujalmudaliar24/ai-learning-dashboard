@@ -30,13 +30,15 @@ A modern, responsive learning dashboard built with React (Vite), Redux Toolkit, 
 
 ## AI Tools Used
 
-This project was built leveraging **Antigravity AI**, taking advantage of its autonomous multi-tool approach to set up projects, install sub-dependencies correctly in parallel, configure state management logically, and craft premium UI elements all based strictly on the core specifications.
+This project was built leveraging **Antigravity AI**, taking advantage of its autonomous multi-tool approach to set up projects, install sub-dependencies correctly in parallel, configure state management logically, and craft premium UI elements all based strictly on the core specifications. **Claude Sonnet 4.6** used for the creating and enhancing the UI 
 
 ## Challenges Faced
 
 1. **TailwindCSS Intialization Environment Constraints**: Specifically executing `npx tailwindcss init -p` inside some subfolders spawned arbitrary internal module errors randomly. This was swiftly mitigated by directly writing valid commonJS files (`tailwind.config.js` and `postcss.config.js`) manually.
 2. **Redux Reactivity across Routes**: Deeply tracking the nested lesson updates up onto the main card list progress bar necessitated precise state restructuring using Toolkit `reducers` explicitly acting on arrays stored globally instead of local isolated React component state.
 3. **Light Mode Animation visibility**: In light mode, the animation is not visible as the background is white and the animation is also white. Had to try various colours to make it visible.
+
+4. **Ai limits**: Faced difficulty while updatating the logic part related to redux as the AI credits were over on Day 1
 
 ## Deployment Link
 - To be updated (Deployed on Vercel)
