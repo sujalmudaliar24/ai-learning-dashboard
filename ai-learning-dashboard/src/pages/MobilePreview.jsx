@@ -3,6 +3,7 @@ import { useTheme } from "../ThemeContext";
 import { useSelector } from "react-redux";
 import { COURSES } from "../data/courses";
 import { LESSONS } from "../data/lessons";
+import { CourseIllustrations } from "../components/CourseIllustrations";
 import gsap from "gsap";
 import AnimatedBackground from "../components/AnimatedBackground";
 
@@ -77,10 +78,12 @@ function HomeScreen({ t, onCourseClick }) {
                 >
                     <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
                         <div style={{
-                            width: 36, height: 36, borderRadius: 10,
+                            width: 36, height: 36, borderRadius: 10, overflow: "hidden",
                             background: `${course.color}20`,
                             display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18,
-                        }}>{course.icon}</div>
+                        }}>
+                            {CourseIllustrations[course.id] || course.icon}
+                        </div>
                         <div style={{ flex: 1 }}>
                             <p style={{ color: t.mText, fontSize: 12, fontWeight: 700, marginBottom: 2 }}>{course.title}</p>
                             <p style={{ color: t.mMuted, fontSize: 10 }}>{LESSONS[course.id]?.length} lessons</p>
@@ -141,7 +144,9 @@ function CourseDetailScreen({ t, course, onBack }) {
                 border: `1px solid ${t.mBorder}`, marginBottom: 12,
             }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-                    <span style={{ fontSize: 28 }}>{course.icon}</span>
+                    <div style={{ width: 56, height: 56, borderRadius: 12, overflow: 'hidden' }}>
+                        {CourseIllustrations[course.id] || <span style={{ fontSize: 28 }}>{course.icon}</span>}
+                    </div>
                     <div>
                         <p style={{ color: t.mText, fontWeight: 700, fontSize: 13 }}>{course.title}</p>
                         <p style={{ color: t.mMuted, fontSize: 10 }}>{lessons.length} lessons</p>
@@ -221,10 +226,12 @@ function CoursesScreen({ t, onCourseClick }) {
                 >
                     <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                         <div style={{
-                            width: 44, height: 44, borderRadius: 12,
+                            width: 44, height: 44, borderRadius: 12, overflow: "hidden",
                             background: `${course.color}20`,
                             display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22,
-                        }}>{course.icon}</div>
+                        }}>
+                            {CourseIllustrations[course.id] || course.icon}
+                        </div>
                         <div style={{ flex: 1 }}>
                             <p style={{ color: t.mText, fontSize: 13, fontWeight: 700 }}>{course.title}</p>
                             <p style={{ color: t.mMuted, fontSize: 10, marginTop: 2 }}>

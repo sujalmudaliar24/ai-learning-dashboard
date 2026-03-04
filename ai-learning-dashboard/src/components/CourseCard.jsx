@@ -2,104 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Link } from 'react-router-dom';
 import { BookOpen, Clock, PlayCircle, CheckCircle } from 'lucide-react';
-
-// SVG course illustrations — vibrant, themed per course
-const CourseIllustrations = {
-    1: (
-        // AI Fundamentals — Neural network
-        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-            <defs>
-                <radialGradient id="g1" cx="50%" cy="50%" r="60%">
-                    <stop offset="0%" stopColor="#6366f1" />
-                    <stop offset="100%" stopColor="#1e1b4b" />
-                </radialGradient>
-                <filter id="glow1">
-                    <feGaussianBlur stdDeviation="3" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                </filter>
-            </defs>
-            <rect width="400" height="200" fill="url(#g1)" />
-            {/* Nodes */}
-            {[[60, 100], [140, 40], [140, 100], [140, 160], [230, 60], [230, 140], [310, 100]].map(([x, y], i) => (
-                <circle key={i} cx={x} cy={y} r="9" fill="none" stroke="#a5b4fc" strokeWidth="2" filter="url(#glow1)" />
-            ))}
-            {/* Connections */}
-            {[[60, 100, 140, 40], [60, 100, 140, 100], [60, 100, 140, 160], [140, 40, 230, 60], [140, 40, 230, 140], [140, 100, 230, 60], [140, 100, 230, 140], [140, 160, 230, 60], [140, 160, 230, 140], [230, 60, 310, 100], [230, 140, 310, 100]].map(([x1, y1, x2, y2], i) => (
-                <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#818cf8" strokeWidth="1.5" strokeOpacity="0.6" />
-            ))}
-            {/* Glowing center node */}
-            <circle cx="310" cy="100" r="14" fill="#6366f1" opacity="0.8" filter="url(#glow1)" />
-            <circle cx="310" cy="100" r="7" fill="#c7d2fe" />
-            {/* Floating particles */}
-            <circle cx="350" cy="30" r="3" fill="#a5b4fc" opacity="0.5" />
-            <circle cx="30" cy="150" r="4" fill="#818cf8" opacity="0.4" />
-            <circle cx="370" cy="170" r="2" fill="#c7d2fe" opacity="0.6" />
-        </svg>
-    ),
-    2: (
-        // Machine Learning — scatter plot / data
-        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-            <defs>
-                <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#0f766e" />
-                    <stop offset="100%" stopColor="#134e4a" />
-                </linearGradient>
-                <filter id="glow2">
-                    <feGaussianBlur stdDeviation="2.5" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                </filter>
-            </defs>
-            <rect width="400" height="200" fill="url(#g2)" />
-            {/* Grid lines */}
-            {[40, 80, 120, 160].map(y => <line key={y} x1="30" y1={y} x2="380" y2={y} stroke="#2dd4bf" strokeWidth="0.5" strokeOpacity="0.2" />)}
-            {[80, 160, 240, 320].map(x => <line key={x} x1={x} y1="20" x2={x} y2="185" stroke="#2dd4bf" strokeWidth="0.5" strokeOpacity="0.2" />)}
-            {/* Regression line */}
-            <line x1="40" y1="160" x2="360" y2="40" stroke="#5eead4" strokeWidth="2" strokeDasharray="6,3" strokeOpacity="0.7" />
-            {/* Data points */}
-            {[[60, 150], [90, 130], [130, 110], [160, 100], [200, 85], [240, 70], [270, 65], [310, 50], [340, 45]].map(([x, y], i) => (
-                <circle key={i} cx={x} cy={y} r="6" fill="#14b8a6" opacity="0.85" filter="url(#glow2)" />
-            ))}
-            {/* Outliers */}
-            {[[100, 60], [200, 150], [290, 100]].map(([x, y], i) => (
-                <circle key={i} cx={x} cy={y} r="5" fill="#f59e0b" opacity="0.7" />
-            ))}
-            {/* Axes */}
-            <line x1="30" y1="185" x2="380" y2="185" stroke="#5eead4" strokeWidth="1.5" strokeOpacity="0.5" />
-            <line x1="30" y1="20" x2="30" y2="185" stroke="#5eead4" strokeWidth="1.5" strokeOpacity="0.5" />
-        </svg>
-    ),
-    3: (
-        // React — atom-style component tree
-        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-            <defs>
-                <radialGradient id="g3" cx="50%" cy="50%" r="70%">
-                    <stop offset="0%" stopColor="#0369a1" />
-                    <stop offset="100%" stopColor="#0c1a2e" />
-                </radialGradient>
-                <filter id="glow3">
-                    <feGaussianBlur stdDeviation="3" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                </filter>
-            </defs>
-            <rect width="400" height="200" fill="url(#g3)" />
-            {/* React atom ellipses */}
-            <ellipse cx="200" cy="100" rx="90" ry="35" fill="none" stroke="#38bdf8" strokeWidth="2" strokeOpacity="0.7" />
-            <ellipse cx="200" cy="100" rx="90" ry="35" fill="none" stroke="#38bdf8" strokeWidth="2" strokeOpacity="0.7" transform="rotate(60 200 100)" />
-            <ellipse cx="200" cy="100" rx="90" ry="35" fill="none" stroke="#38bdf8" strokeWidth="2" strokeOpacity="0.7" transform="rotate(-60 200 100)" />
-            {/* Center */}
-            <circle cx="200" cy="100" r="12" fill="#0ea5e9" filter="url(#glow3)" />
-            <circle cx="200" cy="100" r="6" fill="#e0f2fe" />
-            {/* Orbital electrons */}
-            <circle cx="290" cy="100" r="5" fill="#7dd3fc" filter="url(#glow3)" />
-            <circle cx="155" cy="68" r="5" fill="#38bdf8" filter="url(#glow3)" />
-            <circle cx="156" cy="132" r="5" fill="#bae6fd" filter="url(#glow3)" />
-            {/* Floating brackets */}
-            <text x="50" y="80" fill="#7dd3fc" fontSize="22" opacity="0.5" fontFamily="monospace">{'</'}</text>
-            <text x="320" y="140" fill="#7dd3fc" fontSize="22" opacity="0.5" fontFamily="monospace">{'>'}</text>
-            <text x="60" y="155" fill="#38bdf8" fontSize="14" opacity="0.3" fontFamily="monospace">{'{ state }'}</text>
-        </svg>
-    ),
-};
+import { CourseIllustrations } from './CourseIllustrations';
 
 export default function CourseCard({ course }) {
     const cardRef = useRef(null);
@@ -136,7 +39,7 @@ export default function CourseCard({ course }) {
             {/* Image */}
             <div className="h-44 overflow-hidden relative">
                 <div ref={imgRef} className="w-full h-full will-change-transform">
-                    {CourseIllustrations[course.id]}
+                    {CourseIllustrations[course.id] || <div style={{ width: '100%', height: '100%', backgroundColor: course.color }} />}
                 </div>
                 {/* Badge & completion */}
                 <div className="absolute top-3 left-3">
@@ -151,8 +54,6 @@ export default function CourseCard({ course }) {
                         </span>
                     </div>
                 )}
-                {/* Gradient fade at bottom of image */}
-                <div className="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-white dark:from-gray-800 to-transparent" />
             </div>
 
             {/* Card Body */}

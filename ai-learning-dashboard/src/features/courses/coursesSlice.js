@@ -1,35 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { COURSES } from '../../data/courses';
+import { LESSONS } from '../../data/lessons';
 
-// Mock Data
-export const MOCK_COURSES = [
-    { id: 1, title: 'AI Fundamentals', progress: 60, completedLessons: [1, 2, 3], totalLessons: 5 },
-    { id: 2, title: 'Machine Learning Basics', progress: 20, completedLessons: [1], totalLessons: 5 },
-    { id: 3, title: 'React for Beginners', progress: 90, completedLessons: [1, 2, 3, 4], totalLessons: 5 },
-];
+// Merge Data
+export const MOCK_COURSES = COURSES.map(course => {
+    const lessons = LESSONS[course.id] || [];
+    const completedCount = Math.floor((course.progress / 100) * lessons.length);
+    return {
+        ...course,
+        completedLessons: lessons.slice(0, completedCount).map(l => l.id),
+        totalLessons: lessons.length
+    };
+});
 
-export const MOCK_LESSONS = {
-    1: [
-        { id: 1, title: 'Introduction to AI' },
-        { id: 2, title: 'History of AI' },
-        { id: 3, title: 'Types of AI' },
-        { id: 4, title: 'AI Ethics' },
-        { id: 5, title: 'Future of AI' },
-    ],
-    2: [
-        { id: 1, title: 'What is Machine Learning?' },
-        { id: 2, title: 'Supervised Learning' },
-        { id: 3, title: 'Unsupervised Learning' },
-        { id: 4, title: 'Reinforcement Learning' },
-        { id: 5, title: 'ML Algorithms' },
-    ],
-    3: [
-        { id: 1, title: 'React Basics' },
-        { id: 2, title: 'Components and Props' },
-        { id: 3, title: 'State and Lifecycle' },
-        { id: 4, title: 'Hooks' },
-        { id: 5, title: 'Routing' },
-    ]
-};
+export const MOCK_LESSONS = LESSONS;
 
 // Simulate API call
 export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () => {

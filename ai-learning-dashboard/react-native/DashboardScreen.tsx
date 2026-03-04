@@ -1,11 +1,15 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import { CourseIllustrations } from '../src/components/CourseIllustrations';
 
 // Mock Data
 const MOCK_COURSES = [
     { id: 1, title: 'AI Fundamentals', progress: 60, totalLessons: 5 },
     { id: 2, title: 'Machine Learning Basics', progress: 20, totalLessons: 5 },
     { id: 3, title: 'React for Beginners', progress: 90, totalLessons: 5 },
+    { id: 4, title: "Advanced CSS & Animations", progress: 45, totalLessons: 5 },
+    { id: 5, title: "Node.js Backend Mastery", progress: 10, totalLessons: 5 },
+    { id: 6, title: "Fullstack Web Development", progress: 75, totalLessons: 5 },
 ];
 
 export default function DashboardScreen() {
@@ -23,6 +27,9 @@ export default function DashboardScreen() {
                     <TouchableOpacity key={course.id} style={styles.card}>
                         {/* Card Image Placeholder */}
                         <View style={styles.cardImageContainer}>
+                            <View style={StyleSheet.absoluteFill}>
+                                {CourseIllustrations[course.id as keyof typeof CourseIllustrations]}
+                            </View>
                             <View style={styles.badge}>
                                 <Text style={styles.badgeText}>Course</Text>
                             </View>

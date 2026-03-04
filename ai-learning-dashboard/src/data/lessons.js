@@ -23,4 +23,25 @@ export const LESSONS = {
         { id: 6, title: "State Management" },
         { id: 7, title: "Deploying React Apps" },
     ],
+    4: [
+        { id: 1, title: "CSS Grid & Flexbox" },
+        { id: 2, title: "CSS Transforms" },
+        { id: 3, title: "Keyframe Animations" },
+        { id: 4, title: "Framer Motion Basics" },
+        { id: 5, title: "Advanced GSAP" },
+    ],
+    5: [
+        { id: 1, title: "Introduction to Node.js" },
+        { id: 2, title: "Express.js Basics" },
+        { id: 3, title: "RESTful APIs" },
+        { id: 4, title: "MongoDB Integration" },
+        { id: 5, title: "Authentication (JWT)" },
+    ],
+    6: [
+        { id: 1, title: "System Design Overview" },
+        { id: 2, title: "Connecting Frontend & Backend" },
+        { id: 3, title: "State Management Review" },
+        { id: 4, title: "Deployment Strategies" },
+        { id: 5, title: "CI/CD Pipelines" },
+    ],
 };

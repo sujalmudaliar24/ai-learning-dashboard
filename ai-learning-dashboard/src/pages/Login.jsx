@@ -41,7 +41,7 @@ export default function Login() {
     };
 
     return (
-        <div className="relative min-h-screen flex items-center justify-center p-4 bg-[var(--color-bg)]">
+        <div className="relative min-h-[100dvh] flex items-center justify-center p-4 bg-[var(--color-bg)]">
             <AnimatedBackground />
 
             <div ref={cardRef} className="relative z-10 w-full max-w-md">
